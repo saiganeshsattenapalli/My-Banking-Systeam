@@ -48,7 +48,7 @@ def start(b):#the b is the original banking function
         global username,password
         while True:
             if username == "saiganesh":
-                if password == "2429":
+                if password == "2426":
                     m = cap()
                     print(f"captcha is {m}")
                     c=input("Enter captcha:")
