@@ -1,14 +1,8 @@
 import random as ran
 import string
 def cap(): #this function is used to generate captcha
-    a=list(string.digits)
-    c=list(string.ascii_lowercase)
-    d=list(string.ascii_uppercase)
-    cd=a+c+d
-    w=[50]*len(d)
-    w1=[20]*len(c)
-    w2=[30]*len(a)
-    w=w+w1+w2
+    cd=list(string.digits+string.ascii_letters)
+    w=list(([30]*10)+([20]*26)+([50]*26))
     m="".join(ran.choices(cd,weights=w,k=6))
     return m
 class bank:
@@ -35,12 +29,11 @@ class bank:
             else:
                 self.balance-=w 
                 print(f"Your current balance is {self.balance}")
-username=input("Enter username:")
-password=input("Enetr password:")
 def start(b):#the b is the original banking function
    def login():#this is the wrapper function to login before entering into bank
         attempts = 0
-        global username,password
+        username=input("Enter username:")
+        password=input("Enetr password:")
         while True:
             if username == "saiganesh":
                 if password == "2429":
