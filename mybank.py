@@ -2,19 +2,14 @@ import random as ran
 import string
 def cap(): #this function is used to generate captcha
     a=list(string.digits)
-    l=[]
     c=list(string.ascii_lowercase)
     d=list(string.ascii_uppercase)
-    cd=c+d+a
+    cd=a+c+d
     w=[50]*len(d)
     w1=[20]*len(c)
     w2=[30]*len(a)
     w=w+w1+w2
-    n=ran.choices(cd,weights=w,k=6)
-    for i in n:
-       i=str(i)
-       l.append(i)
-    m="".join(l)
+    m="".join(ran.choices(cd,weights=w,k=6))
     return m
 class bank:
         def __init__(self,deposite=0,withdraw=0):
@@ -48,7 +43,7 @@ def start(b):#the b is the original banking function
         global username,password
         while True:
             if username == "saiganesh":
-                if password == "2426":
+                if password == "2429":
                     m = cap()
                     print(f"captcha is {m}")
                     c=input("Enter captcha:")
