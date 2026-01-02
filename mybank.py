@@ -1,6 +1,5 @@
 import random as ran
 import string
-a=1
 def cap(): #this function is used to generate captcha
     cd=list(string.digits+string.ascii_letters)
     w=list(([30]*10)+([20]*26)+([50]*26))
