@@ -6,7 +6,7 @@ Key Technical Features:
 Security Decorators: Implemented a custom @start decorator to handle user authentication and session security before accessing banking functions.
 Weighted CAPTCHA: Features a dynamic 6-character security code generator using random.choices with specific probability weights for Uppercase (50%), Lowercase (20%), and Digits (30%).
 Object-Oriented Programming (OOP): Manages financial state (balance, deposits, and withdrawals) through a clean bank class.
-ˆntelligent Lockout: Integrated logic to track failed login attempts, automatically denying access after multiple incorrect tries to prevent brute-force attacks
+Intelligent Lockout: Integrated logic to track failed login attempts, automatically denying access after multiple incorrect tries to prevent brute-force attacks
 How to Run:
 1.Clone this repository to your local machine (e.g., your MacBook M4).
 2.Run the script using Python:
