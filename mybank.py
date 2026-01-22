@@ -11,25 +11,31 @@ class bank:#this the bank class
         def balance(self):
             print(f"Your current balance is {self.__balance}")
         def deposite(self):
-            d=int(input("how much would you like to deposite:"))
-            if d<=0:
-                print("Minimum deposite is 1")
-            else:
-                self.__balance+=d
-                print(f"Your current balance is {self.__balance}")
+            try:
+                d=int(input("how much would you like to deposite:"))
+                if d<=0:
+                    print("Minimum deposite is 1")
+                else:
+                    self.__balance+=d
+                    print(f"Your current balance is {self.__balance}")
+            except:
+                print("Invalid input Enter a number")
         def withdraw(self):
-            w=int(input("how much would you like to withdraw:"))
-            if w<=0:
-                print("Mimnimum withdraw is 1")
-            elif w>self.__balance:
-                print("Infulent balance")
-            else:
-                self.__balance-=w
-                print(f"Your current balance is {self.__balance}")
+            try:
+                w=int(input("how much would you like to withdraw:"))
+                if w<=0:
+                    print("Mimnimum withdraw is 1")
+                elif w>self.__balance:
+                    print("Infulent balance")
+                else:
+                    self.__balance-=w
+                    print(f"Your current balance is {self.__balance}")
+            except:
+                print("Invalid input Enter a number")
         def get_balance(self):#this function is used as argument for savingsaccount
             return self.__balance 
 # 'SavingsAccount' inherits from 'bank'
-class SavingsAccount(bank):
+class savingsaccount(bank):
     def __init__(self,balance1=0):
         super().__init__(balance1)#this line inherits from bank class
         self.balance1=balance1
@@ -90,7 +96,7 @@ def banking():#this is the main function and the actuall intraface of bank
             print("You are sucessfully logout see you soon")
             break
         elif a=="N":
-            y=SavingsAccount(x.get_balance())
+            y=savingsaccount(x.get_balance())
             y.balance()
         else:
             print("Ivalid input")
