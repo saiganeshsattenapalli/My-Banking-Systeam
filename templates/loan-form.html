@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Loan Approval - Saiganesh Bank</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; }
+        body { background: #eef4fb; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px;}
+        .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 24px 80px rgba(31,75,143,0.12); max-width: 500px; width: 100%; text-align: center; }
+        
+        /* Dynamic Styling based on AI Decision */
+        .status-box { padding: 30px; border-radius: 15px; margin: 20px 0; }
+        .approved { background: #dcfce7; color: #166534; border: 2px solid #22c55e; }
+        .rejected { background: #fee2e2; color: #991b1b; border: 2px solid #ef4444; }
+        .error { background: #fef3c7; color: #92400e; border: 2px solid #f59e0b; }
+        
+        .stats { display: flex; justify-content: space-around; margin: 20px 0; padding: 15px; background: #f8fafc; border-radius: 10px; }
+        .stat-item { font-size: 14px; color: #475569; }
+        .stat-value { font-size: 20px; font-weight: bold; color: #0f172a; }
+        
+        .btn-home { display: block; padding: 14px; background: #1f4b8f; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; margin-top: 20px;}
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1 style="font-size: 24px; color: #1e293b;">🤖 AI Loan Assessment</h1>
+        <p style="color: #64748b; margin-top: 10px;">Our Machine Learning model has analyzed your profile.</p>
+
+        <div class="stats">
+            <div class="stat-item">
+                Account Balance<br>
+                <span class="stat-value">₹{{ balance }}</span>
+            </div>
+            <div class="stat-item">
+                Transactions<br>
+                <span class="stat-value">{{ txns }}</span>
+            </div>
+        </div>
+
+        <div class="status-box 
+            {% if status == True %} approved 
+            {% elif status == False %} rejected 
+            {% else %} error {% endif %}">
+            
+            <h2 style="margin-bottom: 10px;">{{ status }}</h2>
+            <p>{{ message }}</p>
+        </div>
+
+        <a href="javascript:history.back()" class="btn-home">Return to Dashboard</a>
+    </div>
+
+</body>
+</html>

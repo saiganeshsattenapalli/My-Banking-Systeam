@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Created - Saiganesh Bank</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .success-container {
+            background-color: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(25, 118, 210, 0.15);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Success Header with Green Accent */
+        .success-header {
+            background-color: #4caf50; /* A clean success green */
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .success-header .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .success-header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .success-body {
+            padding: 30px;
+        }
+
+        .success-body p {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* The Digital "Bank Card" for details */
+        .details-card {
+            background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(13, 71, 161, 0.2);
+            position: relative;
+        }
+
+        .details-card::after {
+            content: "🏦";
+            font-size: 60px;
+            position: absolute;
+            right: 15px;
+            bottom: 10px;
+            opacity: 0.1; /* Watermark effect */
+        }
+
+        .detail-group {
+            margin-bottom: 15px;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 3px;
+        }
+
+        .detail-value {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .detail-value.name {
+            letter-spacing: normal;
+        }
+
+        /* Login Button */
+        .btn-login {
+            display: inline-block;
+            background-color: #1976d2;
+            color: white;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-login:hover {
+            background-color: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="success-container">
+        <div class="success-header">
+            <div class="icon">✅</div>
+            <h1>Account Created!</h1>
+            <p style="opacity: 0.9;">Welcome to Saiganesh Bank</p>
+        </div>
+
+        <div class="success-body">
+            <p>Your smart banking account is ready. Please save your account details below.</p>
+
+           <div class="details-card">
+                <div class="detail-group">
+                    <div class="detail-label">Account Holder</div>
+                    <div class="detail-value name">{{ full_name }}</div>
+                </div>
+                
+                <div class="detail-group">
+                    <div class="detail-label">User ID</div>
+                    <div class="detail-value name">{{ user_id }}</div>
+                </div>
+
+                <div class="detail-group">
+                    <div class="detail-label">Account Number</div>
+                    <div class="detail-value">{{ account_number }}</div>
+                </div>
+
+                <div class="detail-group" style="margin-bottom: 0;">
+                    <div class="detail-label">Created On</div>
+                    <div class="detail-value name" style="font-size: 16px;">{{ creation_date }}</div>
+                </div>
+            </div>
+
+            <a href="/login-form" class="btn-login">Proceed to Login</a>
+        </div>
+    </div>
+
+</body>
+</html>

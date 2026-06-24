@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login To Saiganesh Bank</title>
+    <style>
+        /* 1. Reset standard browser spacing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* 2. Elegant light blue background to match the home page */
+        body {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        /* 3. The Login Card */
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(25, 118, 210, 0.15);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container h2 {
+            color: #0d47a1;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        /* 4. Form Layout */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spaces out the inputs evenly */
+        }
+
+        label {
+            font-weight: 600;
+            color: #1565c0;
+            font-size: 14px;
+            margin-bottom: -10px; /* Pulls label closer to its input */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        /* Highlights the box blue when the user clicks on it */
+        input:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
+        }
+
+        /* 5. Custom Captcha Styling */
+        .captcha-box {
+            /* Creates a security-style striped background */
+            background: repeating-linear-gradient(45deg, #e3f2fd, #e3f2fd 10px, #bbdefb 10px, #bbdefb 20px);
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 8px; /* Spaces the letters out */
+            color: #0d47a1;
+            text-align: center;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            user-select: none; /* Prevents users from copying the text */
+        }
+
+        /* 6. Login Button */
+        button {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+
+        }
+        /* Error Message Styling */
+.error-box {
+    background-color: #ffebee; /* Light red background */
+    color: #c62828; /* Dark red text */
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 5px solid #c62828;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+
+}
+        /* 7. Login Link */
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Secure Login</h2>
+        {% if error %}
+            <div class="error-box">
+                {{ error }}
+            </div>
+        {% endif %}
+        
+        <form action="/login" method="post"> 
+            <label for="userid">User ID:</label>
+            <input type="text" id="userid" name="userid" placeholder="Enter your ID" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            
+            <div class="captcha-box">{{ captcha }}</div>
+            <input type="hidden" name="real_captcha" value="{{ captcha }}">
+            
+            <label for="user_captcha">Security Verification:</label>
+            <input type="text" id="user_captcha" name="user_captcha" placeholder="Enter the code above" required>
+            
+            <button type="submit">Login</button>
+
+        </form>
+           <div class="login-link">
+            Don't have an account? <a href="/create-account-form">Create here</a>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>
