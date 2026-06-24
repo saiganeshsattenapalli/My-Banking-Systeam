@@ -9,8 +9,7 @@ warnings.filterwarnings("ignore", message="X does not have valid feature names")
 
 
 def cap(): #this function is for captcha generation
-    captcha_chars = string.digits + string.ascii_letters
-    return "".join(secrets.SystemRandom().choices(captcha_chars, k=6))
+    return "".join(secrets.SystemRandom().choices(string.digits + string.ascii_letters,k=6))
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
