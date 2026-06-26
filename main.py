@@ -1,7 +1,8 @@
 from fastapi import FastAPI, Request, Form,staticfiles,APIRouter,Depends, HTTPException
 from fastapi.templating import Jinja2Templates
 import secrets,string,sqlite3,uuid,pickle
-import numpy as np, pandas as pd,matplotlib.pyplot as plt,warnings
+import numpy as np, pandas as pd,matplotlib.pyplot as plt,warnings,os
+from dotenv import load_dotenv
 from datetime import datetime
 from starlette.middleware.sessions import SessionMiddleware
 from fastapi.responses import HTMLResponse, RedirectResponse
@@ -14,7 +15,8 @@ def cap(): #this function is for captcha generation
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", staticfiles.StaticFiles(directory="static"), name="static")
-app.add_middleware(SessionMiddleware, secret_key="SAi-ganesh-super-secret-bank-key-2426")
+load_dotenv()
+app.add_middleware(SessionMiddleware, secret_key=os.getenv("SECRET_KEY"))
 class Bank:
     def __init__(self, userid:str):
         self.userid = userid
