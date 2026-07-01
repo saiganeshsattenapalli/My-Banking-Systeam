@@ -360,7 +360,7 @@
                             <div class="transaction-amount {% if tx.type == 'Received' %}text-green{% else %}text-dark{% endif %}">
                                 {{ tx.amount }}
                             </div>
-                            <div class="status-pill {% if tx.status == 'Failed' %}status-fail{% else %}status-success{% endif %}" style="margin-top: 8px;">
+                            <div class="status-pill {% if tx.status == 'failed' %}status-fail{% else %}status-success{% endif %}" style="margin-top: 8px;">
                                 {{ tx.status }}
                             </div>
                         </div>

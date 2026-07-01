@@ -131,13 +131,16 @@
 
             <label for="method">Transfer Method:</label>
             <select id="method" name="method" required>
-                <option value="Online Banking">Online Banking</option>
-                <option value="UPI Transfer">UPI Transfer</option>
-                <option value="NEFT">NEFT</option>
-                <option value="IMPS">IMPS</option>
+                <option value="internal_transfer">internal transfer</option>
+                <option value="upi">upi</option>
+                <option value="neft">neft</option>
+                <option value="rtgs">rtgs</option>
+                <option value="debit_card">debit card</option>
+                <option value="credit_card">credit card</option>
+                <option value="branch_cash">branch cash</option>
             </select>
 
-            <label for="note">Note (Optional):</label>
+            <label for="note">Note:</label>
             <input type="text" id="note" name="note" placeholder="What is this for?">
             
             <button type="submit">Confirm Transfer</button>
